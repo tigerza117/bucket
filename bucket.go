@@ -1,4 +1,4 @@
-package bucket_list
+package bucket
 
 import (
 	"sync"
