@@ -27,7 +27,7 @@ func New[T any](maxSize int) Bucket[T] {
 	return &bk
 }
 
-func (b *bucket[T]) Add(data T) {
+func (b bucket[T]) Add(data T) {
 	b.sync.Lock()
 	if b.size < b.maxSize {
 		b.data[b.size] = data
@@ -39,6 +39,6 @@ func (b *bucket[T]) Add(data T) {
 	b.sync.Unlock()
 }
 
-func (b *bucket[T]) List() []T {
+func (b bucket[T]) List() []T {
 	return b.data
 }
